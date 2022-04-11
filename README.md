@@ -2,12 +2,12 @@
 
 ### 1) Introduction
 NFT Gallery is a BApp that works with Kaikas. This project refers to the source code of the Kaikas tutorial (https://github.com/klaytn/kaikas-tutorial). 
-Once you log in with your Kaikas wallet, the game screen shows max 5 NFT images owned by you. 
+Once you log in with your Kaikas wallet or Klip wallet, you can place your NFT on the wall. 
 
 ### 2) Getting started
 1. Open terminal
-2. Clone the repo by running `git clone https://github.com/Yeonju-Kim/NFT-Gallery.git`
-3. `cd kaikas-tutorial`
+2. Clone the repo by running `git clone https://github.com/klaytn/3d-nft-gallery.git`
+3. `cd 3d-nft-gallery`
 4. Write `.env` file in configs folder. (https://docs.klaytnapi.com/undefined/get-ready#getting-started-getready-key)
 ```
 ACCESS_KEY_ID={YourAccessKeyID}
