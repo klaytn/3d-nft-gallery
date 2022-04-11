@@ -3,7 +3,7 @@
 
 
 ### 1) Introduction
-NFT Gallery is a BApp that works with Kaikas and Klip wallet. This project refers to the source code of the Kaikas tutorial (https://github.com/klaytn/kaikas-tutorial). Once you log in with your Kaikas wallet or Klip wallet, you can place your NFT on the wall. 
+NFT Gallery is a BApp that works with Kaikas and Klip wallet. This project refers to the source code of the Kaikas tutorial (https://github.com/klaytn/kaikas-tutorial). Once you log in with your Kaikas wallet or Klip wallet, you can place your NFT on the wall. This project uses NodeJS v16.14.2.
 
 ### 2) Getting started
 1. Open terminal
