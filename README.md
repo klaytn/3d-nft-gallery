@@ -1,8 +1,9 @@
-<img width="1563" alt="Screen Shot 2022-03-04 at 11 56 05 AM" src="https://user-images.githubusercontent.com/32542557/156690631-3069d86a-9822-44ba-b8db-24076b2d17d5.png">
+
+<img width="330" src="https://user-images.githubusercontent.com/32542557/162716150-6ae9be9f-570a-42a1-8d31-164ef2584f1c.png"><img width="330"  src="https://user-images.githubusercontent.com/32542557/162716172-e180ec80-8c7e-4f48-a59a-132b8c577d13.png"><img width="330" src="https://user-images.githubusercontent.com/32542557/162716176-60d07f67-6c2f-421f-810a-9a9ceb457971.png">
+
 
 ### 1) Introduction
-NFT Gallery is a BApp that works with Kaikas. This project refers to the source code of the Kaikas tutorial (https://github.com/klaytn/kaikas-tutorial). 
-Once you log in with your Kaikas wallet or Klip wallet, you can place your NFT on the wall. 
+NFT Gallery is a BApp that works with Kaikas and Klip wallet. This project refers to the source code of the Kaikas tutorial (https://github.com/klaytn/kaikas-tutorial). Once you log in with your Kaikas wallet or Klip wallet, you can place your NFT on the wall. 
 
 ### 2) Getting started
 1. Open terminal
