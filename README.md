@@ -1,5 +1,4 @@
-
-<img width="300" src="https://user-images.githubusercontent.com/32542557/162716150-6ae9be9f-570a-42a1-8d31-164ef2584f1c.png"><img width="300"  src="https://user-images.githubusercontent.com/32542557/162716172-e180ec80-8c7e-4f48-a59a-132b8c577d13.png"><img width="300" src="https://user-images.githubusercontent.com/32542557/162716176-60d07f67-6c2f-421f-810a-9a9ceb457971.png">
+<img width="300"  src="https://user-images.githubusercontent.com/32542557/162716172-e180ec80-8c7e-4f48-a59a-132b8c577d13.png"><img width="300" src="https://user-images.githubusercontent.com/32542557/162716176-60d07f67-6c2f-421f-810a-9a9ceb457971.png">
 
 
 ### 1) Introduction
