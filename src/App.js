@@ -36,11 +36,29 @@ function App() {
     unityContext.setFullscreen(true);
   }
 
+
+  useEffect(() => {
+    window.addEventListener('click', (event) => {
+      if(event.target.id == "unity-canvas-1") 
+      {
+        unityContext.send("GameObject", "updateFocus", 1)
+      }
+    });
+    window.addEventListener('keydown', (event )=>{
+      if (event.key == "Escape")
+      {
+        unityContext.send("GameObject", "updateFocus", 0)
+      }
+    })
+  }, []);
   return (
     <div id= "unity" className="wrapper" >
       <div className="unity-footer">
         <div className="unity-webgl-logo"></div>
         <button className="unity-fullscreen-button" onClick={handleClick}></button>
+      </div>
+      <div className = "unity-focus">
+        <p>Click Unity scene to move player. Press ESC key to detach player controller. </p>
       </div>
         
       <Unity style={{

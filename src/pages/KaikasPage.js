@@ -31,11 +31,7 @@ class KaikasPage extends Component {
         return response.json();
       })
       .then(function (json){
-        var reg = /(.*?)\.(jpg|jpeg|png|webp)$/;
-        if (json.image.match(reg))
-        {
-          unityContext.send("NFTList", "addUrl", json.image);
-        }
+        unityContext.send("NFTList", "addUrl", json.image);
       });
   }
 

@@ -56,3 +56,7 @@
 }
 
 .unity-fullscreen-button { float: right; width: 38px; height: 38px; background: url('fullscreenbutton.png'); }
+
+.unity-focus{
+  font-size:12px;
+}
