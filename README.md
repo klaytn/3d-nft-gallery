@@ -16,12 +16,12 @@ SECRET_ACCESS_KEY={YourSecretAccessKey}
 
 5. Run `npm install` to install node packages
 6. Run `npm run local`
-7. App should be running on https://localhost:8888
+7. App should be running on http://localhost:8888
 
 #### Builds the app for production
 1. Run `npm run build` to build app
 2. Run `npm start`
-3. App should be running on https://localhost:5555
+3. App should be running on http://localhost:5555
 
 ### 3) Move a Player in Unity 
 Move the view around using the mouse, the WASD keys to move left/right/forward/backward. 
