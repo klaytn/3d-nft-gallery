@@ -36,7 +36,6 @@ function App() {
     unityContext.setFullscreen(true);
   }
 
-
   useEffect(() => {
     window.addEventListener('click', (event) => {
       if(event.target.id == "unity-canvas-1") 
@@ -51,6 +50,7 @@ function App() {
       }
     })
   }, []);
+  
   return (
     <div id= "unity" className="wrapper" >
       <div className="unity-footer">

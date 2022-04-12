@@ -32,7 +32,11 @@ class KaikasPage extends Component {
       })
       .then(function (json){
         unityContext.send("NFTList", "addUrl", json.image);
-      });
+      })
+      .catch(e=>{
+        console.error(e)
+        window.alert(`${e}\nSee browser's developer tools for more details.`)
+      })
   }
 
   getNFTUri = async()=> {
