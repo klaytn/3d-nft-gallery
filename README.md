@@ -8,7 +8,7 @@ NFT Gallery is a BApp that works with Kaikas and Klip wallet. This project refer
 1. Open terminal
 2. Clone the repo by running `git clone https://github.com/klaytn/3d-nft-gallery.git`
 3. `cd 3d-nft-gallery`
-4. Write `.env` file in configs folder. (To generate Authentication Key, visit [here](https://docs.klaytnapi.com/v/en/getting-started/get-ready#getting-started-getready-key))
+4. Copy and paste `configs/.env.template` file in configs folder. Then rename it '.env' and update variables with your authentication key.  (To generate Authentication Key, visit [here](https://docs.klaytnapi.com/v/en/getting-started/get-ready#getting-started-getready-key)) The '.env' file looks like this: 
 ```
 ACCESS_KEY_ID={YourAccessKeyID}
 SECRET_ACCESS_KEY={YourSecretAccessKey}
