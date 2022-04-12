@@ -35,7 +35,7 @@ class KaikasPage extends Component {
       })
       .catch(e=>{
         console.error(e)
-        window.alert(`${e}\nSee browser's developer tools for more details.`)
+        unityContext.send("NFTList", "addUrl", "");
       })
   }
 
