@@ -31,7 +31,7 @@ class KaikasPage extends Component {
       .then(function (response){
         return response.json();
       })
-      .then(function (json){
+      .then(async (json)=>{
         var reg_video = /(.*?)\.(webm|mp4|m4v|ogv)$/;
         var reg_gif = /(.*?)\.(gif)$/;
         if(json.hasOwnProperty("animation_url") && json.animation_url.match(reg_video))
@@ -44,14 +44,14 @@ class KaikasPage extends Component {
           unityContext.send("NFTList", "loadNFT");
         }
         else{
-          this.getNFTUriInFailedCase();
+          await this.getNFTUriInFailedCase();
         }
       })
-      .catch((e)=>{
+      .catch(async (e)=>{
         console.error(e)
         if(newCursor != "")
         {
-          this.getNFTUriInFailedCase();
+          await this.getNFTUriInFailedCase();
         }
         else{
           unityContext.send("NFTList", "loadNFT");
@@ -63,7 +63,6 @@ class KaikasPage extends Component {
     //method that retrieves one more NFT for failed case.
     const { account } = this.state 
     const { unityContext } = this.props
-    
     const query = {
       kind: caverExtKas.kas.tokenHistory.queryOptions.kind.NFT,
       size: 1,
@@ -71,10 +70,10 @@ class KaikasPage extends Component {
     }
     const ret = await caverExtKas.kas.tokenHistory.getTokenListByOwner(account, query)
     newCursor = ret.cursor
-    ret.items.forEach(async(element) => {
+    for await (const element of ret.items){
       await this.getImg(element.extras.tokenUri)
-    })
-    unityContext.send("NFTList", "updateCursor", ret.cursor)
+    } 
+    unityContext.send("NFTList", "updateCursor", newCursor)
   }
 
   getNFTUri = async()=> {
@@ -90,12 +89,12 @@ class KaikasPage extends Component {
     {
       unityContext.send("NFTList", "loadNFT")
     }
-    unityContext.send("NFTList", "reset");
-    ret.items.forEach(async (element)=>{
-        await this.getImg(element.extras.tokenUri)
-    })
+    unityContext.send("NFTList", "reset")
     newCursor = ret.cursor
-    unityContext.send("NFTList", "addCursor", ret.cursor)
+    unityContext.send("NFTList", "addCursor", newCursor)
+    for await (const element of ret.items){
+      await this.getImg(element.extras.tokenUri)
+    }
   }
 
   loadAccountInfo = async (e) => {
