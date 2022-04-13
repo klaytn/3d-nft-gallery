@@ -21,7 +21,6 @@ function App() {
 
   useEffect(function (){
     unityContext.on("ReloadNFTJS", function(c){
-      setCursor(c)
       if(cursor == c){
         setCursor(null)
         setCursor(c)
@@ -50,7 +49,7 @@ function App() {
       }
     })
   }, []);
-  
+
   return (
     <div id= "unity" className="wrapper" >
       <div className="unity-footer">
@@ -58,7 +57,7 @@ function App() {
         <button className="unity-fullscreen-button" onClick={handleClick}></button>
       </div>
       <div className = "unity-focus">
-        <p>Click Unity scene to move player. Press ESC key to detach player controller. </p>
+        <h3>Click Unity scene to move player. Press ESC key to detach player controller. </h3>
       </div>
         
       <Unity style={{

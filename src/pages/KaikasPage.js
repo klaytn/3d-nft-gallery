@@ -11,6 +11,7 @@ import QRCode from 'qrcode.react'
 // console.log(process.env.SECRET_ACCESS_KEY)
 const caverExtKas = new CaverExtKAS(8217, process.env.ACCESS_KEY_ID, process.env.SECRET_ACCESS_KEY)
 var klipLink = "" 
+var newCursor = "" 
 
 class KaikasPage extends Component {
   constructor(props) {
@@ -31,29 +32,69 @@ class KaikasPage extends Component {
         return response.json();
       })
       .then(function (json){
-        unityContext.send("NFTList", "addUrl", json.image);
+        var reg_video = /(.*?)\.(webm|mp4|m4v|ogv)$/;
+        var reg_gif = /(.*?)\.(gif)$/;
+        if(json.hasOwnProperty("animation_url") && json.animation_url.match(reg_video))
+        {
+          unityContext.send("NFTList", "addUrl", json.animation_url);
+          unityContext.send("NFTList", "loadNFT");
+        }
+        else if(!json.image.match(reg_gif)){
+          unityContext.send("NFTList", "addUrl", json.image);
+          unityContext.send("NFTList", "loadNFT");
+        }
+        else{
+          this.getNFTUriInFailedCase();
+        }
       })
-      .catch(e=>{
+      .catch((e)=>{
         console.error(e)
-        unityContext.send("NFTList", "addUrl", "");
+        if(newCursor != "")
+        {
+          this.getNFTUriInFailedCase();
+        }
+        else{
+          unityContext.send("NFTList", "loadNFT");
+        }
       })
+  }
+
+  getNFTUriInFailedCase = async()=>{
+    //method that retrieves one more NFT for failed case.
+    const { account } = this.state 
+    const { unityContext } = this.props
+    
+    const query = {
+      kind: caverExtKas.kas.tokenHistory.queryOptions.kind.NFT,
+      size: 1,
+      cursor: newCursor
+    }
+    const ret = await caverExtKas.kas.tokenHistory.getTokenListByOwner(account, query)
+    newCursor = ret.cursor
+    ret.items.forEach(async(element) => {
+      await this.getImg(element.extras.tokenUri)
+    })
+    unityContext.send("NFTList", "updateCursor", ret.cursor)
   }
 
   getNFTUri = async()=> {
     const { account } = this.state
     const { unityContext, currentCursor } = this.props
-
     const query = {
       kind: caverExtKas.kas.tokenHistory.queryOptions.kind.NFT,
       size: 9,
       cursor: currentCursor,
     }
     const ret = await caverExtKas.kas.tokenHistory.getTokenListByOwner(account, query)
+    if(ret.items.length == 0)
+    {
+      unityContext.send("NFTList", "loadNFT")
+    }
     unityContext.send("NFTList", "reset");
-    unityContext.send("NFTList", "setTotalNum", ret.items.length)
     ret.items.forEach(async (element)=>{
-      await this.getImg(element.extras.tokenUri)
+        await this.getImg(element.extras.tokenUri)
     })
+    newCursor = ret.cursor
     unityContext.send("NFTList", "addCursor", ret.cursor)
   }
 
