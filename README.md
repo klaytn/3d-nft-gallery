@@ -24,7 +24,7 @@ SECRET_ACCESS_KEY={YourSecretAccessKey}
 3. App should be running on http://localhost:5555
 
 ### 3) Compatible NFT File Format
-This project supports video file formats: <strong>webm, mp4, m4v, ogv</strong> which are supported by Unity [VideoPlayer](https://docs.unity3d.com/Manual/VideoSources-FileCompatibility.html). And GIF is not supported since it is not compatible with Unity Texture object. 
+This project supports video file formats: <strong>webm, mp4, m4v, ogv</strong> which are supported by Unity [VideoPlayer](https://docs.unity3d.com/Manual/VideoSources-FileCompatibility.html). And <strong>GIF</strong> is not supported since it is not compatible with Unity Texture object. 
 
 ### 4) Move a Player in Unity 
 Move the view around using the mouse, the WASD keys to move left/right/forward/backward. 
